@@ -58,15 +58,18 @@ function draw() {
 	detectollision(stoneObj,mango3);
 	detectollision(stoneObj,mango4);
 	detectollision(stoneObj,mango5);
+
+	textSize(20);
+	text("Press Space To Get Another Chance To Play!", 150, 50);
 }
 
-function mouseDragged()
-{
+function mouseDragged(){
+
 	Matter.Body.setPosition(stoneObj.body, {x:mouseX, y:mouseY}) 
 }
 
-function mouseReleased()
-{
+function mouseReleased(){
+
 	launcherObject.fly();
 
 }
@@ -84,4 +87,15 @@ function detectollision(lstone,lmango){
 		
     }
 
-  }
+}
+
+function keyPressed(){
+
+	if(keyCode === 32){
+
+		Matter.Body.setPosition(stoneObj.body, {x:235, y:420})
+		launcherObject.attach(stoneObj.body);
+
+	}
+
+}
